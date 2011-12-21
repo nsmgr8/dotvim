@@ -38,6 +38,7 @@ set showcmd             " Show (partial) command in status line.
 set showmatch           " Show matching brackets.
 set ruler               " line and column number of the cursor position
 set wildmenu            " enhanced command completion
+set wildmode=list:full
 set visualbell          " use visual bell instead of beeping
 set laststatus=2        " always show the status line
 set listchars=tab:>-,trail:.,extends:>,nbsp:_
@@ -60,6 +61,8 @@ set history=1000
 set autoread            " automatically read feil that has been changed on disk and doesn't have changes in vim
 set backspace=indent,eol,start
 set guioptions-=T       " disable toolbar"
+set guioptions+=lLrRb
+set guioptions-=lLrRb
 set completeopt=menuone,preview,longest
 set cinoptions=:0,(s,u0,U1,g0,t0 " some indentation options ':h cinoptions' for details
 set modelines=5         " number of lines to check for vim: directives at the start/end of file

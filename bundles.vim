@@ -25,7 +25,8 @@ Bundle 'Color-Sampler-Pack'
 "Bundle 'python_fold'
 Bundle 'YankRing.vim'
 Bundle 'vim-indent-object'
-
+Bundle 'vcscommand.vim'
+Bundle 'DrawIt'
 " Git Repos on GitHub
 " Inspired from http://sontek.net/turning-vim-into-a-modern-python-ide
 Bundle 'Lokaltog/vim-easymotion'

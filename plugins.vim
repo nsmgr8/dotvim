@@ -113,3 +113,17 @@ let g:pymode_syntax_highlight_exceptions = g:pymode_syntax_all
 " For fast machines
 let g:pymode_syntax_slow_sync = 0
 
+"let g:pymode_lint = 0
+
+" Disable pylint checking every save
+"let g:pymode_lint_write = 0
+
+" Switch pylint or pyflakes code checker
+" values (pylint, pyflakes)
+let g:pymode_lint_checker = "pyflakes"
+
+" Auto open cwindow if errors be finded
+"let g:pymode_lint_cwindow = 0
+
+let g:syntastic_auto_loc_list = 0
+

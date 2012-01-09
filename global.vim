@@ -60,7 +60,7 @@ set hidden              " enable multiple modified buffers
 set history=1000
 set autoread            " automatically read feil that has been changed on disk and doesn't have changes in vim
 set backspace=indent,eol,start
-set guioptions-=T       " disable toolbar"
+set guioptions-=T       " disable toolbar
 set guioptions+=lLrRb
 set guioptions-=lLrRb
 set completeopt=menuone,preview,longest
@@ -86,7 +86,7 @@ set smartcase           " do not ignore if search pattern has CAPS
 set foldcolumn=0        " columns for folding
 set foldmethod=indent
 set foldlevel=9
-set nofoldenable        "dont fold by default "
+set foldenable        "dont fold by default "
 
 " extended '%' mapping for if/then/else/end etc
 runtime macros/matchit.vim

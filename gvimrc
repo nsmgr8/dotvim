@@ -36,7 +36,7 @@ colorscheme solarized
 
 " Font.
 if has('mac')
-    set guifont=Monaco:h13
+    set guifont=Anonymous\ Pro:h16
 elseif has('unix')
     let &guifont="DejaVu Sans Mono 10"
 endif

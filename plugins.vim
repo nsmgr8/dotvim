@@ -113,3 +113,5 @@ let g:pymode_syntax_highlight_exceptions = g:pymode_syntax_all
 " For fast machines
 let g:pymode_syntax_slow_sync = 0
 
+let g:pymode_options_fold = 0
+let g:pymode_lint_checker = "pyflakes"

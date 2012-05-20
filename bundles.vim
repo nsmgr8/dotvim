@@ -62,7 +62,10 @@ Bundle 'fholgado/minibufexpl.vim'
 Bundle 'TaskList.vim'
 Bundle 'Align'
 Bundle 'tracwiki'
+Bundle 'vimwiki'
 Bundle 'nsmgr8/Trac.vim'
+Bundle 'CycleColor'
+Bundle 'Lokaltog/vim-powerline'
 
 " Git Repos not on GitHub
 "Bundle 'git://git.wincent.com/command-t.git'

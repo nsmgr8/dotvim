@@ -115,3 +115,5 @@ let g:pymode_syntax_slow_sync = 0
 
 let g:pymode_options_fold = 0
 let g:pymode_lint_checker = "pyflakes"
+
+let g:Powerline_symbols = 'fancy'

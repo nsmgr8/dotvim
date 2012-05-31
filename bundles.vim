@@ -63,7 +63,7 @@ Bundle 'TaskList.vim'
 Bundle 'Align'
 Bundle 'tracwiki'
 Bundle 'vimwiki'
-Bundle 'nsmgr8/Trac.vim'
+Bundle 'nsmgr8/vitra'
 Bundle 'CycleColor'
 Bundle 'Lokaltog/vim-powerline'
 

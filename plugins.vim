@@ -33,7 +33,7 @@ map <leader>u :GundoToggle<CR>
 nnoremap <leader>s :%s//<left>
 
 " Bundle 'ZoomWin'
-map <leader><leader> :ZoomWin<CR>
+"map <leader><leader> :ZoomWin<CR>
 
 " Bundle 'mileszs/ack.vim'
 nmap <leader>a <Esc>:Ack!<space>
@@ -69,6 +69,9 @@ nmap <leader>f :let @/="\\<<C-R><C-W>\\>"<CR>:set hls<CR>:silent Ggrep -w "<C-R>
 
 " same in visual mode
 :vmap <leader>f y:let @/=escape(@", '\\[]$^*.')<CR>:set hls<CR>:silent Ggrep -F "<C-R>=escape(@", '\\"#')<CR>"<CR>:ccl<CR>:cw<CR><CR>
+
+"delete fugitive buffers on hide
+autocmd BufReadPost fugitive://* set bufhidden=delete
 
 " vim-indentobject
 " add Markdown to the list of indentation based languages

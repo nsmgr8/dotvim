@@ -66,6 +66,9 @@ Bundle 'vimwiki'
 Bundle 'nsmgr8/vitra'
 Bundle 'CycleColor'
 Bundle 'Lokaltog/vim-powerline'
+Bundle 'mattn/webapi-vim'
+Bundle 'mattn/gist-vim'
+Bundle 'kien/ctrlp.vim'
 
 " Git Repos not on GitHub
 "Bundle 'git://git.wincent.com/command-t.git'

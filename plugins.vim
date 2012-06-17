@@ -62,3 +62,5 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_auto_loc_list = 2
 
 let g:Powerline_symbols = 'fancy'
+
+let g:indent_guides_guide_size = 1

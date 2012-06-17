@@ -88,5 +88,12 @@ set foldmethod=indent
 set foldlevel=9
 set foldenable        "dont fold by default "
 
+let mapleader = ","
+let maplocalleader = "\\"
+
+" Assume Bash is my shell (:help sh.vim)
+let g:is_bash = 1
+let bash_is_sh=1        " syntax shell files as bash scripts
+
 " extended '%' mapping for if/then/else/end etc
 runtime macros/matchit.vim

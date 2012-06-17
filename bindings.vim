@@ -41,6 +41,8 @@ nnoremap #   #zz
 nnoremap g*  g*zz
 nnoremap g#  g#z
 
+nnoremap <c-l> :nohl<cr><c-l>
+
 " http://vim.wikia.com/wiki/Move_cursor_by_display_lines_when_wrapping
 nnoremap <silent> j gj
 nnoremap <silent> k gk

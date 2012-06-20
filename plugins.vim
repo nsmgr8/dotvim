@@ -22,17 +22,8 @@ map <leader>l :TagbarToggle<CR>
 " Bundle 'sjl/gundo.vim'
 map <leader>u :GundoToggle<CR>
 
-" Quick shortcut to s
-nnoremap <leader>s :%s//<left>
-
 nmap <leader>a <Esc>:Ack!<space>
-
-" minibufexpl
-"let g:miniBufExplVSplit = 25
-let g:miniBufExplorerMoreThanOne = 100
-let g:miniBufExplUseSingleClick = 1
-" ,b to display current buffers list
-nmap <leader>b :MiniBufExplorer<cr>
+nmap <leader>aw <Esc>:Ack! '\b<c-r><c-w>\b'<cr>
 
 " yankring
 let g:yankring_replace_n_pkey = '<leader>['
@@ -41,8 +32,8 @@ let g:yankring_replace_n_nkey = '<leader>]'
 nmap <leader>y :YRShow<cr>
 
 " Fugitive
-" ,e for Ggrep
-nmap <leader>g :Ggrep 
+" ,g for Ggrep
+nmap <leader>g :Ggrep<space>
 
 " ,f for global git serach for word under the cursor (with highlight)
 nmap <leader>f :let @/="\\<<C-R><C-W>\\>"<CR>:set hls<CR>:silent Ggrep -w "<C-R><C-W>"<CR>:ccl<CR>:cw<CR><CR>
@@ -57,6 +48,7 @@ let g:pymode_lint = 0
 let g:pymode_options_fold = 0
 let g:pymode_rope = 0
 let g:pymode_utils_whitespaces = 0
+let g:pymode_breakpoint_key = '<leader>bk'
 
 let g:syntastic_check_on_open = 1
 let g:syntastic_auto_loc_list = 2

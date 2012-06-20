@@ -4,17 +4,26 @@ map Q gq
 "make Y consistent with C and D
 nnoremap Y y$
 
+" Quick shortcut to s
+nnoremap <leader>s :%s//<left>
+
 " toggle highlight trailing whitespace
-nmap <silent> <leader>s :set nolist!<CR>
+nmap <silent> <leader>ls :set nolist!<CR>
 
 " Ctrl-N to disable search match highlight
 nmap <silent> <C-N> :silent noh<CR>
 
 " Ctrol-E to switch between 2 last buffers
 nmap <C-E> :b#<CR>
+nmap <leader>b :buffer<space>
 
 " ,e to fast finding files. just type beginning of a name and hit TAB
 nmap <leader>e :e **/
+nmap <leader>sp :sp **/
+nmap <leader>vs :vs **/
+
+" grep word in current buffer
+nmap <leader>vg :vimgrep '\<<c-r><c-w>\>' %<cr>:copen<cr>
 
 " Make shift-insert work like in Xterm
 map <S-Insert> <MiddleMouse>

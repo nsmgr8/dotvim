@@ -10,14 +10,14 @@ function! CopyAll()
     normal mzggVG"+y'z
     call Say("Copied.")
 endfunction
-command A call CopyAll()
+command! A call CopyAll()
 
 " Delete buffer contents and Paste from OS clipboard.
 function! PasteFromClipboard()
     normal ggVGd"+p1G
     call Say("Pasted.")
 endfunction
-command B call PasteFromClipboard()
+command! B call PasteFromClipboard()
 
 if has('python') " Assumes Python >= 2.6
 
@@ -34,10 +34,10 @@ vim.command('normal o')
 EOF
     endfunction
 
-    command H1 call Heading('=')
-    command H2 call Heading('-')
-    command H3 call Heading('~')
-    command H4 call Heading('^')
+    command! H1 call Heading('=')
+    command! H2 call Heading('-')
+    command! H3 call Heading('~')
+    command! H4 call Heading('^')
 
     " Quick way to open a filename under the cursor in a new tab
     " (or URL in a browser)
@@ -82,7 +82,7 @@ EOF
 
     endfunction
 
-    command O call Open()
+    command! O call Open()
     map <Leader>o :call Open()<CR>
 
 " Add the virtualenv's site-packages to vim path
@@ -103,7 +103,7 @@ endif " python
 autocmd BufNewFile,BufReadPost *.coffee setlocal shiftwidth=2
 
 " XML, HTML
-function TagExpander()
+function! TagExpander()
     if exists("b:did_ftplugin")
       unlet b:did_ftplugin
     endif
@@ -136,10 +136,13 @@ autocmd BufRead,BufNewFile */flask_application/templates/*.html setlocal ft=html
 " Convenient command to see the difference between the current buffer and the
 " file it was loaded from, thus the changes you made.
 " Only define it when not defined already.
-if !exists(":DiffOrig")
-  command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis
-		  \ | wincmd p | diffthis
-endif
+command! DiffOrig vert new |
+			\set bt=nofile |
+			\r # |
+			\0d_ |
+			\diffthis |
+			\wincmd p |
+			\diffthis
 
 " Show syntax highlighting groups for word under cursor
 nmap <C-S-P> :call <SID>SynStack()<CR>
@@ -149,3 +152,14 @@ function! <SID>SynStack()
   endif
   echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
 endfunc
+
+command! Rename call RenameFile()
+function! RenameFile()
+    let old_name = expand('%')
+    let new_name = input('New file name: ', expand('%'), 'file')
+    if new_name != '' && new_name != old_name
+        exec ':saveas ' . new_name
+        exec ':silent !rm ' . old_name
+        redraw!
+    endif
+endfunction

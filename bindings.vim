@@ -22,6 +22,8 @@ nmap <leader>e :e **/
 nmap <leader>sp :sp **/
 nmap <leader>vs :vs **/
 
+cnoremap %% <C-R>=expand('%:h').'/'<cr>
+
 " grep word in current buffer
 nmap <leader>vg :vimgrep '\<<c-r><c-w>\>' %<cr>:copen<cr>
 
@@ -64,3 +66,9 @@ map <Leader>d mmHmt:%s/<C-V><cr>//ge<cr>'tzt'm
 " Insert timestamp
 nmap <F3> a<C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR><Esc>
 imap <F3> <C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR>
+
+" Move around splits with <c-hjkl>
+nnoremap <c-j> <c-w>j
+nnoremap <c-k> <c-w>k
+nnoremap <c-h> <c-w>h
+nnoremap <c-l> <c-w>l

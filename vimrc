@@ -1,6 +1,5 @@
 source ~/.vim/bundles.vim
 source ~/.vim/global.vim
-"source ~/.vim/status.vim
 source ~/.vim/bindings.vim
 source ~/.vim/plugins.vim
 source ~/.vim/utils.vim

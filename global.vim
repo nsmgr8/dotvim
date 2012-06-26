@@ -44,6 +44,7 @@ set laststatus=2        " always show the status line
 set listchars=tab:>-,trail:.,extends:>,nbsp:_
 set list
 
+set t_Co=256          " assume terminal has 256 color
 colorscheme vividchalk
 set background=dark
 
@@ -61,6 +62,7 @@ set history=1000
 set autoread            " automatically read feil that has been changed on disk and doesn't have changes in vim
 set backspace=indent,eol,start
 set guioptions-=T       " disable toolbar
+set guioptions-=m       " disable menubar
 set guioptions+=lLrRb
 set guioptions-=lLrRb
 set completeopt=menuone,preview,longest
@@ -74,7 +76,7 @@ set formatoptions+=lnor1 " Reformatting options. See `:help fo-table`
 if has("mouse")
   set mouse=a
 endif
-set mousehide                           " Hide mouse pointer on insert mode."
+set mousehide           " Hide mouse pointer on insert mode
 
 " search settings
 set incsearch           " Incremental search
@@ -86,7 +88,7 @@ set smartcase           " do not ignore if search pattern has CAPS
 set foldcolumn=0        " columns for folding
 set foldmethod=indent
 set foldlevel=9
-set foldenable        "dont fold by default "
+set foldenable        " dont fold by default
 
 let mapleader = ","
 let maplocalleader = "\\"

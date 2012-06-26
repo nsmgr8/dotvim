@@ -136,13 +136,18 @@ autocmd BufRead,BufNewFile */flask_application/templates/*.html setlocal ft=html
 " Convenient command to see the difference between the current buffer and the
 " file it was loaded from, thus the changes you made.
 " Only define it when not defined already.
-command! DiffOrig vert new |
-			\set bt=nofile |
-			\r # |
-			\0d_ |
-			\diffthis |
-			\wincmd p |
-			\diffthis
+command! DiffOrig silent call DiffOrig()
+function! DiffOrig()
+    vert new
+    r #
+    0d_
+    diffthis
+    set bt=nofile
+    setlocal bufhidden=delete
+    setlocal nomodifiable
+    wincmd p
+    diffthis
+endfunction
 
 " Show syntax highlighting groups for word under cursor
 nmap <C-S-P> :call <SID>SynStack()<CR>
@@ -162,4 +167,20 @@ function! RenameFile()
         exec ':silent !rm ' . old_name
         redraw!
     endif
+endfunction
+
+command! TabToSpace silent exec "%!expand -t 4"
+
+command! BranchDiverge silent call s:svnDiverge()
+function! s:svnDiverge()
+    let l:versions = system('svnversion')
+    new
+    r!svn diff -r$(svnversion)
+    exec 'f Branch\ Diverged\ ::\ '.versions
+    0d_
+    set ft=diff
+    set bt=nofile
+    setlocal nomodifiable
+    nnoremap <buffer> q :bd<cr>
+    set bufhidden=delete
 endfunction

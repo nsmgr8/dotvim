@@ -29,6 +29,7 @@ Bundle 'CycleColor'
 Bundle 'Color-Sampler-Pack'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'chriskempson/vim-tomorrow-theme'
+Bundle 'CSApprox'
 " utils
 Bundle 'DrawIt'
 Bundle 'ZoomWin'

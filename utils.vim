@@ -175,7 +175,7 @@ command! BranchDiverge silent call s:svnDiverge()
 function! s:svnDiverge()
     let l:versions = system('svnversion')
     new
-    r!svn diff -r$(svnversion)
+    r!svn diff -r$(svnversion | sed 's/[0-9]*[A-Z]/HEAD/')
     exec 'f Branch\ Diverged\ ::\ '.versions
     0d_
     set ft=diff

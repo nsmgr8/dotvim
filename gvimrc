@@ -41,3 +41,6 @@ elseif has('unix')
     let &guifont="DejaVu Sans Mono 10"
 endif
 
+if filereadable(expand("~/.gvimrc.local", ":p"))
+  source ~/.gvimrc.local
+endif

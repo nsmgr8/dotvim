@@ -33,7 +33,6 @@ Bundle 'CSApprox'
 " utils
 Bundle 'DrawIt'
 Bundle 'ZoomWin'
-Bundle 'Lokaltog/vim-easymotion'
 Bundle 'msanders/snipmate.vim'
 Bundle 'ervandew/supertab'
 Bundle 'YankRing.vim'
@@ -48,6 +47,7 @@ Bundle 'Lokaltog/vim-powerline'
 " vcs
 Bundle 'vcscommand.vim'
 Bundle 'tpope/vim-fugitive'
+Bundle 'gregsexton/gitv'
 " jumps, search, list
 Bundle 'mileszs/ack.vim'
 Bundle 'majutsushi/tagbar'
@@ -56,10 +56,10 @@ Bundle 'sjl/gundo.vim'
 Bundle 'TaskList.vim'
 Bundle 'tpope/vim-unimpaired'
 Bundle 'kien/ctrlp.vim'
-Bundle 'spiiph/vim-space'
 " python
 Bundle 'klen/python-mode'
 Bundle 'alfredodeza/pytest.vim'
+Bundle 'jmcantrell/vim-virtualenv'
 " environment
 Bundle 'vimwiki'
 Bundle 'nsmgr8/vitra'

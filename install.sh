@@ -1,10 +1,10 @@
 #!/bin/bash
 
 workdir=$(pwd)
-sourcedir="$workdir/$(dirname $0)"
-vimrc=$sourcedir"/vimrc"
-gvimrc=$sourcedir"/gvimrc"
-bundledir=$HOME"/.vim/bundle"
+sourcedir=$workdir/$(dirname $0)
+vimrc=$sourcedir/vimrc
+gvimrc=$sourcedir/gvimrc
+bundledir=$HOME/.vim/bundle
 
 ln -s $sourcedir $HOME/.vim
 ln -s $vimrc $HOME/.vimrc

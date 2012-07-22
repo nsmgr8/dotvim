@@ -10,6 +10,7 @@ let g:EasyMotion_leader_key = '<Leader>m'
 nnoremap <leader>n :NERDTreeToggle<CR>
 " ,p to show current file in the tree
 nnoremap <leader>p :NERDTreeFind<CR>
+let g:NERDTreeHijackNetrw = 0
 
 " nerdcommenter
 " ,/ to invert comment on the current line/selection

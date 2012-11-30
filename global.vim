@@ -44,6 +44,8 @@ set laststatus=2        " always show the status line
 set listchars=tab:>-,trail:.,extends:>,nbsp:_
 set list
 
+set pastetoggle=<F2>
+
 set t_Co=256          " assume terminal has 256 color
 colorscheme vividchalk
 set background=dark

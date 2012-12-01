@@ -10,7 +10,6 @@ let g:EasyMotion_leader_key = '<Leader>m'
 nnoremap <leader>n :NERDTreeToggle<CR>
 " ,p to show current file in the tree
 nnoremap <leader>p :NERDTreeFind<CR>
-let g:NERDTreeHijackNetrw = 0
 
 " nerdcommenter
 " ,/ to invert comment on the current line/selection
@@ -23,11 +22,11 @@ nnoremap <leader>l :TagbarToggle<CR>
 " Bundle 'sjl/gundo.vim'
 nnoremap <leader>u :GundoToggle<CR>
 
+let g:ackprg = 'ag --nogroup --nocolor --column'
 nnoremap <leader>a <Esc>:Ack!<space>
 nnoremap <leader>aw <Esc>:Ack! '\b<c-r><c-w>\b'<cr>
 nnoremap <leader>ac <Esc>:Ack! '\bclass <c-r><c-w>\b'<cr>
 nnoremap <leader>am <Esc>:Ack! '\bdef <c-r><c-w>\b'<cr>
-nnoremap <leader>af <Esc>:AckFile '<c-r><c-w>\.py$'<cr>
 
 " yankring
 let g:yankring_replace_n_pkey = '<leader>['

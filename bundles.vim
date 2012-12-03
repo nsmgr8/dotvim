@@ -24,6 +24,7 @@ Bundle 'nginx.vim'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'tracwiki'
 Bundle 'sukima/xmledit'
+Bundle 'tsaleh/vim-tmux'
 " colors
 Bundle 'CycleColor'
 Bundle 'Colour-Sampler-Pack'

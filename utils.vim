@@ -133,6 +133,8 @@ autocmd BufRead,BufNewFile *.json setlocal ft=json foldmethod=syntax
 " Jinja files
 autocmd BufRead,BufNewFile */flask_application/templates/*.html setlocal ft=htmljinja
 
+autocmd FileType qf setlocal colorcolumn=0
+
 " Convenient command to see the difference between the current buffer and the
 " file it was loaded from, thus the changes you made.
 " Only define it when not defined already.

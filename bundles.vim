@@ -28,8 +28,6 @@ Bundle 'tsaleh/vim-tmux'
 " colors
 Bundle 'CycleColor'
 Bundle 'Colour-Sampler-Pack'
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'chriskempson/vim-tomorrow-theme'
 Bundle 'CSApprox'
 " utils
 Bundle 'DrawIt'

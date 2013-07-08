@@ -23,11 +23,11 @@ nnoremap <leader>l :TagbarToggle<CR>
 " Bundle 'sjl/gundo.vim'
 nnoremap <leader>u :GundoToggle<CR>
 
-let g:ackprg = 'ag --nogroup --nocolor --column'
-nnoremap <leader>a <Esc>:Ack!<space>
-nnoremap <leader>aw <Esc>:Ack! '\b<c-r><c-w>\b'<cr>
-nnoremap <leader>ac <Esc>:Ack! '\bclass <c-r><c-w>\b'<cr>
-nnoremap <leader>am <Esc>:Ack! '\bdef <c-r><c-w>\b'<cr>
+"let g:ackprg = 'ag --nogroup --nocolor --column'
+nnoremap <leader>a <Esc>:Ag!<space>
+nnoremap <leader>aw <Esc>:Ag! '\b<c-r><c-w>\b'<cr>
+nnoremap <leader>ac <Esc>:Ag! '\bclass <c-r><c-w>\b'<cr>
+nnoremap <leader>am <Esc>:Ag! '\bdef <c-r><c-w>\b'<cr>
 
 " yankring
 let g:yankring_replace_n_pkey = '<leader>['
@@ -60,3 +60,10 @@ let g:syntastic_auto_loc_list = 2
 let g:Powerline_symbols = 'fancy'
 
 let g:indent_guides_guide_size = 1
+
+python <<endpython
+from powerline.vim import setup as powerline_setup
+powerline_setup()
+del powerline_setup
+endpython
+let g:syntastic_stl_format = '%B{E:%t}'

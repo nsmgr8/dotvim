@@ -42,11 +42,12 @@ Bundle 'scrooloose/nerdcommenter'
 Bundle 'tpope/vim-surround'
 Bundle 'Align'
 Bundle 'nathanaelkane/vim-indent-guides'
-"Bundle 'Lokaltog/vim-powerline'
+Bundle 'bling/vim-airline'
 " vcs
 Bundle 'vcscommand.vim'
 Bundle 'tpope/vim-fugitive'
 Bundle 'gregsexton/gitv'
+Bundle 'airblade/vim-gitgutter'
 " jumps, search, list
 Bundle 'mileszs/ack.vim'
 Bundle 'rking/ag.vim'

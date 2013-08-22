@@ -61,9 +61,6 @@ let g:Powerline_symbols = 'fancy'
 
 let g:indent_guides_guide_size = 1
 
-python <<endpython
-from powerline.vim import setup as powerline_setup
-powerline_setup()
-del powerline_setup
-endpython
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#syntastic#enabled = 1
 let g:syntastic_stl_format = '%B{E:%t}'

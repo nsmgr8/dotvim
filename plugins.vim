@@ -2,9 +2,6 @@
 autocmd FileType python set omnifunc=pythoncomplete#Complete
 let g:SuperTabDefaultCompletionType = "context"
 
-" Bundle 'Lokaltog/vim-easymotion'
-let g:EasyMotion_leader_key = '<Leader>m'
-
 " nerdtree
 " ,n to Display the file browser tree
 nnoremap <leader>n :NERDTreeToggle<CR>
@@ -23,7 +20,6 @@ nnoremap <leader>l :TagbarToggle<CR>
 " Bundle 'sjl/gundo.vim'
 nnoremap <leader>u :GundoToggle<CR>
 
-"let g:ackprg = 'ag --nogroup --nocolor --column'
 nnoremap <leader>a <Esc>:Ag!<space>
 nnoremap <leader>aw <Esc>:Ag! '\b<c-r><c-w>\b'<cr>
 nnoremap <leader>ac <Esc>:Ag! '\bclass <c-r><c-w>\b'<cr>
@@ -48,19 +44,18 @@ vnoremap <leader>f y:let @/=escape(@", '\\[]$^*.')<CR>:set hls<CR>:silent Ggrep 
 "delete fugitive buffers on hide
 autocmd BufReadPost fugitive://* set bufhidden=delete
 
+" Python-mode
 let g:pymode_lint = 0
 let g:pymode_options_fold = 0
-let g:pymode_rope = 0
 let g:pymode_utils_whitespaces = 0
 let g:pymode_breakpoint_key = '<leader>bk'
 
+" Syntastic
 let g:syntastic_check_on_open = 1
 let g:syntastic_auto_loc_list = 2
 
-let g:Powerline_symbols = 'fancy'
-
-let g:indent_guides_guide_size = 1
-
+" airline
+let g:airline_theme='dark'
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#syntastic#enabled = 1
 let g:syntastic_stl_format = '%B{E:%t}'

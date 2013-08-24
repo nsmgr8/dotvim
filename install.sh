@@ -15,4 +15,4 @@ pushd $bundledir
 git clone git://github.com/gmarik/vundle.git
 popd
 
-vim -c BundleInstall
+vim -c BundleInstall +qa

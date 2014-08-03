@@ -1,6 +1,8 @@
 " For 'supertab' script
-autocmd FileType python set omnifunc=pythoncomplete#Complete
 let g:SuperTabDefaultCompletionType = "context"
+
+" hide some files and remove stupid help
+let g:netrw_list_hide='^\.,.\(pyc\|pyo\|o\)$'
 
 " nerdtree
 " ,n to Display the file browser tree
@@ -8,11 +10,7 @@ nnoremap <leader>n :NERDTreeToggle<CR>
 " ,p to show current file in the tree
 nnoremap <leader>p :NERDTreeFind<CR>
 let g:NERDTreeHijackNetrw = 0
-
-" nerdcommenter
-" ,/ to invert comment on the current line/selection
-nnoremap <leader>/ :call NERDComment(0, "invert")<cr>
-vnoremap <leader>/ :call NERDComment(0, "invert")<cr>
+let NERDTreeIgnore=['\~$', '\.pyc$', '\.pyo$', '\.class$', 'pip-log\.txt$', '\.o$', '\.dSYM$']
 
 " Bundle 'majutsushi/tagbar'
 nnoremap <leader>l :TagbarToggle<CR>
@@ -44,18 +42,34 @@ vnoremap <leader>f y:let @/=escape(@", '\\[]$^*.')<CR>:set hls<CR>:silent Ggrep 
 "delete fugitive buffers on hide
 autocmd BufReadPost fugitive://* set bufhidden=delete
 
-" Python-mode
-let g:pymode_lint = 0
-let g:pymode_options_fold = 0
-let g:pymode_utils_whitespaces = 0
-let g:pymode_breakpoint_key = '<leader>bk'
-
 " Syntastic
 let g:syntastic_check_on_open = 1
 let g:syntastic_auto_loc_list = 2
+let g:syntastic_python_checkers = ['flake8']
 
 " airline
 let g:airline_theme='dark'
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#syntastic#enabled = 1
+let g:airline#extensions#tabline#enabled = 1
 let g:syntastic_stl_format = '%B{E:%t}'
+let g:airline_mode_map = {
+  \ '__' : '-',
+  \ 'n' : 'N',
+  \ 'i' : 'I',
+  \ 'R' : 'R',
+  \ 'c' : 'C',
+  \ 'v' : 'V',
+  \ 'V' : 'V',
+  \ '' : 'V',
+  \ 's' : 'S',
+  \ 'S' : 'S',
+  \ '' : 'S',
+  \ }
+"let g:airline#extensions#whitespace#checks = []
+"let g:airline_section_y = airline#section#create_right(['%{printf("%s%s",&fenc,&ff!="unix"?":".&ff:"")}'])
+"let g:airline_section_z = airline#section#create_right(['%3l:%2c'])
+let g:airline#extensions#hunks#non_zero_only = 1
+
+let g:ycm_global_ycm_extra_conf = "~/.vim/ycm_extra_conf.py"
+let g:ycm_autoclose_preview_window_after_completion = 1

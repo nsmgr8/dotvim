@@ -1,8 +1,5 @@
 syntax on
 
-" Automatically indent when adding a curly bracket, etc.
-" required! by vundle
-filetype plugin indent on
 set autoindent
 set smartindent
 
@@ -40,6 +37,7 @@ set ruler               " line and column number of the cursor position
 set wildmenu            " enhanced command completion
 set wildmode=list:full
 set visualbell          " use visual bell instead of beeping
+"set cmdheight=2
 set laststatus=2        " always show the status line
 set listchars=tab:>-,trail:.,extends:>,nbsp:_
 set list

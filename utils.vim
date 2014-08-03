@@ -20,70 +20,32 @@ endfunction
 command! B call PasteFromClipboard()
 
 if has('python') " Assumes Python >= 2.6
-
-    " Make it easy to add heading markers in ReStructuredText
-    function! Heading(char)
+" Quick way to open a filename under the cursor in a new tab
+" (or URL in a browser)
 python <<EOF
-import vim
-
-marker_line = vim.eval('a:char') * len(vim.current.line)
-current_line_number = vim.current.window.cursor[0] # (row, col)
-vim.current.buffer.append(marker_line, current_line_number)
-vim.command('normal j')
-vim.command('normal o')
-EOF
-    endfunction
-
-    command! H1 call Heading('=')
-    command! H2 call Heading('-')
-    command! H3 call Heading('~')
-    command! H4 call Heading('^')
-
-    " Quick way to open a filename under the cursor in a new tab
-    " (or URL in a browser)
-    function! Open()
-python <<EOF
-import re
 import platform
 import vim
 
-def launch(uri):
-    if platform.system() == 'Darwin':
-        vim.command('!open {0}'.format(uri))
-    elif platform.system() == 'Linux':
-        vim.command('!gnome-open {0}'.format(uri))
+def launch():
+    filename_start = filename_end = vim.current.window.cursor[1]
 
-def is_word(text):
-    return re.match(r'^[\w./?%:#&=-]+$', text) is not None
+    while filename_start > 0 and not vim.current.line[filename_start].isspace():
+        filename_start -= 1
 
-filename_start = filename_end = vim.current.window.cursor[1] # (row, col)
+    while filename_end < len(vim.current.line) and not vim.current.line[filename_end].isspace():
+        filename_end += 1
 
-while filename_start >= 0 and is_word(vim.current.line[filename_start:filename_start+1]):
-    filename_start -= 1
-filename_start += 1
-
-while filename_end <= len(vim.current.line) and is_word(vim.current.line[filename_end:filename_end+1]):
-    filename_end += 1
-
-filename = vim.current.line[filename_start:filename_end]
-
-if filename.endswith('.rst') or filename.endswith('.txt'):
-    vim.command('tabedit {0}'.format(filename))
-
-elif filename.lower().startswith('http') or filename.lower().startswith('www.'):
-    if filename.lower().startswith('www.'):
-        filename = 'http://{0}'.format(filename)
-    filename = filename.replace('#', r'\#').replace('%', r'\%')
-    launch(filename)
-
-else:
-    launch(filename)
+    vim.command('echo "start {} end {}"'.format(filename_start, filename_end))
+    uri = vim.current.line[filename_start:filename_end]
+    opener = {
+        'Darwin': 'open',
+        'Linux': 'xdg-open',
+    }.get(platform.system())
+    if opener:
+        vim.command('!{0} {1}'.format(opener, uri))
 EOF
 
-    endfunction
-
-    command! O call Open()
-    map <Leader>o :call Open()<CR>
+    map <Leader>o :silent python launch()<CR>
 
 " Add the virtualenv's site-packages to vim path
 python << EOF
@@ -100,38 +62,38 @@ EOF
 endif " python
 
 " Bundle 'kchmck/vim-coffee-script'
-autocmd BufNewFile,BufReadPost *.coffee setlocal shiftwidth=2
+"autocmd BufNewFile,BufReadPost *.coffee setlocal shiftwidth=2
 
 " XML, HTML
-function! TagExpander()
-    if exists("b:did_ftplugin")
-      unlet b:did_ftplugin
-    endif
-    runtime! ftplugin/xml.vim ftplugin/xml_*.vim ftplugin/xml/*.vim
-endfunction
+"function! TagExpander()
+    "if exists("b:did_ftplugin")
+      "unlet b:did_ftplugin
+    "endif
+    "runtime! ftplugin/xml.vim ftplugin/xml_*.vim ftplugin/xml/*.vim
+"endfunction
 
-autocmd FileType xml   call TagExpander()
-autocmd FileType html  call TagExpander()
-autocmd FileType eruby call TagExpander()
-autocmd FileType php   call TagExpander()
-autocmd FileType htmljinja call TagExpander()
-autocmd FileType htmldjango call TagExpander()
+"autocmd FileType xml   call TagExpander()
+"autocmd FileType html  call TagExpander()
+"autocmd FileType eruby call TagExpander()
+"autocmd FileType php   call TagExpander()
+"autocmd FileType htmljinja call TagExpander()
+"autocmd FileType htmldjango call TagExpander()
 
 " Ruby
-autocmd BufRead,BufNewFile {Gemfile,Rakefile,config.ru} set ft=ruby
-autocmd FileType ruby setlocal tabstop=2 shiftwidth=2
+"autocmd BufRead,BufNewFile {Gemfile,Rakefile,config.ru} set ft=ruby
+"autocmd FileType ruby setlocal tabstop=2 shiftwidth=2
 
 " Go ( http://www.go-lang.org )
-autocmd BufRead,BufNewFile *.go setlocal ft=go
+"autocmd BufRead,BufNewFile *.go setlocal ft=go
 
 " YAML
-autocmd FileType yaml setlocal tabstop=2 shiftwidth=2
+"autocmd FileType yaml setlocal tabstop=2 shiftwidth=2
 
 " JSON
-autocmd BufRead,BufNewFile *.json setlocal ft=json foldmethod=syntax
+"autocmd BufRead,BufNewFile *.json setlocal ft=json foldmethod=syntax
 
 " Jinja files
-autocmd BufRead,BufNewFile */flask_application/templates/*.html setlocal ft=htmljinja
+"autocmd BufRead,BufNewFile */flask_application/templates/*.html setlocal ft=htmljinja
 
 autocmd FileType qf setlocal colorcolumn=0
 
@@ -185,4 +147,18 @@ function! s:svnDiverge()
     setlocal nomodifiable
     nnoremap <buffer> q :bd<cr>
     set bufhidden=delete
+endfunction
+
+" Small helper that inserts a random uuid4
+" ----------------------------------------
+nnoremap <leader>4 :call InsertUUID4()<CR>
+function! InsertUUID4()
+python << endpython
+import uuid, vim
+s = str(uuid.uuid4())
+cpos = vim.current.window.cursor
+cline = vim.current.line
+vim.current.line = cline[:cpos[1] + 1] + s + cline[cpos[1] + 1:]
+vim.current.window.cursor = (cpos[0], cpos[1] + len(s))
+endpython
 endfunction

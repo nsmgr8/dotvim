@@ -1,9 +1,12 @@
-source ~/.vim/bundles.vim
-source ~/.vim/global.vim
-source ~/.vim/bindings.vim
-source ~/.vim/plugins.vim
-source ~/.vim/utils.vim
+function! s:sourcerc(fname)
+    if filereadable(expand(a:fname, ":p"))
+      execute 'source ' . a:fname
+    endif
+endfunction
 
-if filereadable(expand("~/.vimrc.local", ":p"))
-  source ~/.vimrc.local
-endif
+call s:sourcerc("~/.vim/bundles.vim")
+call s:sourcerc("~/.vim/global_opts.vim")
+call s:sourcerc("~/.vim/plugin_opts.vim")
+call s:sourcerc("~/.vim/key_bindings.vim")
+call s:sourcerc("~/.vim/utils.vim")
+call s:sourcerc("~/.vimrc.local")

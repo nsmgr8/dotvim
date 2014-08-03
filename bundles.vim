@@ -1,58 +1,101 @@
-"" Vim, not Vi.
-" This must be first, because it changes other options as a side effect.
-set nocompatible
-" required! by vundle
-filetype off
+if has('vim_starting')
+  set nocompatible               " Be iMproved
 
-"" Vundle
-"" See :help vundle for more details
-set runtimepath+=~/.vim/bundle/vundle/
-call vundle#rc()
+  " Required:
+  set runtimepath+=~/.vim/bundle/neobundle.vim/
+endif
 
-" let Vundle manage Vundle
-" required! by vundle
-Bundle 'gmarik/vundle'
+" Required:
+call neobundle#begin(expand('~/.vim/bundle/'))
+
+" Let NeoBundle manage NeoBundle
+" Required:
+NeoBundleFetch 'Shougo/neobundle.vim'
 
 " syntax
-Bundle 'scrooloose/syntastic'
-Bundle 'JSON.vim'
-Bundle 'django.vim'
-Bundle 'Jinja'
-Bundle 'nginx.vim'
-Bundle 'kchmck/vim-coffee-script'
-Bundle 'tracwiki'
-Bundle 'sukima/xmledit'
-Bundle 'tudorprodan/html_annoyance.vim'
-Bundle 'tsaleh/vim-tmux'
+NeoBundle 'scrooloose/syntastic'
+NeoBundle 'octol/vim-cpp-enhanced-highlight'
+NeoBundle 'vim-jp/cpp-vim'
+NeoBundle 'kergoth/aftersyntaxc.vim'
+NeoBundle 'chrisbra/csv.vim'
+NeoBundle 'tpope/vim-cucumber'
+NeoBundle 'honza/dockerfile.vim'
+NeoBundle 'tpope/vim-git'
+NeoBundle 'jnwhiteh/vim-golang'
+NeoBundle 'othree/html5.vim'
+NeoBundle 'digitaltoad/vim-jade'
+NeoBundle 'pangloss/vim-javascript'
+NeoBundle 'leshill/vim-json'
+NeoBundle 'LaTeX-Box-Team/LaTeX-Box'
+NeoBundle 'groenewege/vim-less'
+NeoBundle 'tpope/vim-markdown'
+NeoBundle 'mutewinter/nginx.vim'
+NeoBundle 'StanAngeloff/php.vim'
+NeoBundle 'mitsuhiko/vim-python-combined'
+NeoBundle 'vim-scripts/R.vim'
+NeoBundle 'vim-ruby/vim-ruby'
+NeoBundle 'wting/rust.vim'
+NeoBundle 'kurayama/systemd-vim-syntax'
+NeoBundle 'acustodioo/vim-tmux'
+NeoBundle 'ap/vim-css-color'
+NeoBundle 'mitsuhiko/vim-jinja'
+NeoBundle 'django.vim'
+NeoBundle 'kchmck/vim-coffee-script'
+NeoBundle 'vim-perl/vim-perl'
+NeoBundle 'tracwiki'
+NeoBundle 'sukima/xmledit'
+NeoBundle 'tudorprodan/html_annoyance.vim'
+NeoBundle 'Rykka/riv.vim'
+NeoBundle 'fish-syntax'
 " colors
-Bundle 'CycleColor'
-Bundle 'Colour-Sampler-Pack'
-Bundle 'CSApprox'
-Bundle 'bling/vim-airline'
+NeoBundle 'CycleColor'
+NeoBundle 'flazz/vim-colorschemes'
+NeoBundle 'CSApprox'
+NeoBundle 'bling/vim-airline'
 " utils
-Bundle 'DrawIt'
-Bundle 'ervandew/supertab'
-Bundle 'YankRing.vim'
-Bundle 'mattn/zencoding-vim'
+NeoBundle 'DrawIt'
+NeoBundle 'ervandew/supertab'
+NeoBundle 'Valloric/YouCompleteMe'
+NeoBundle 'YankRing.vim'
+NeoBundle 'mattn/emmet-vim'
 " formats
-Bundle 'vim-indent-object'
-Bundle 'scrooloose/nerdcommenter'
-Bundle 'tpope/vim-surround'
-Bundle 'Align'
+NeoBundle 'vim-indent-object'
+"NeoBundle 'scrooloose/nerdcommenter'
+NeoBundle 'tpope/vim-commentary'
+NeoBundle 'tpope/vim-surround'
+NeoBundle 'Align'
 " vcs
-Bundle 'vcscommand.vim'
-Bundle 'tpope/vim-fugitive'
-Bundle 'gregsexton/gitv'
-Bundle 'mhinz/vim-signify'
+NeoBundle 'vcscommand.vim'
+NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'gregsexton/gitv'
+NeoBundle 'mhinz/vim-signify'
 " jumps, search, list
-Bundle 'rking/ag.vim'
-Bundle 'majutsushi/tagbar'
-Bundle 'scrooloose/nerdtree'
-Bundle 'sjl/gundo.vim'
-Bundle 'TaskList.vim'
-Bundle 'tpope/vim-unimpaired'
+NeoBundle 'Shougo/Unite.vim'
+NeoBundle 'Shougo/vimproc.vim', {
+      \ 'build' : {
+      \     'windows' : 'tools\\update-dll-mingw',
+      \     'cygwin' : 'make -f make_cygwin.mak',
+      \     'mac' : 'make -f make_mac.mak',
+      \     'unix' : 'make -f make_unix.mak',
+      \    },
+      \ }
+NeoBundle 'rking/ag.vim'
+NeoBundle 'majutsushi/tagbar'
+NeoBundle 'scrooloose/nerdtree'
+NeoBundle 'sjl/gundo.vim'
+NeoBundle 'TaskList.vim'
+NeoBundle 'tpope/vim-unimpaired'
 " python
-Bundle 'klen/python-mode'
-Bundle 'alfredodeza/pytest.vim'
+NeoBundle 'alfredodeza/pytest.vim'
+NeoBundle 'jmcantrell/vim-virtualenv'
 " environment
-Bundle 'nsmgr8/vitra'
+NeoBundle 'nsmgr8/vitra'
+
+call neobundle#end()
+
+" Required:
+filetype plugin indent on
+
+" If there are uninstalled bundles found on startup,
+" this will conveniently prompt you to install them.
+NeoBundleCheck

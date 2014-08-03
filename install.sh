@@ -2,17 +2,28 @@
 
 workdir=$(pwd)
 sourcedir=$workdir/$(dirname $0)
-vimrc=$sourcedir/vimrc
-gvimrc=$sourcedir/gvimrc
 bundledir=$HOME/.vim/bundle
+vimdir=$HOME/.vim
+current_ts=$(date "+%s")
+youcompleteme=$bundledir/YouCompleteMe
 
-ln -s $sourcedir $HOME/.vim
-ln -s $vimrc $HOME/.vimrc
-ln -s $gvimrc $HOME/.gvimrc
+[[ -d $bundledir ]] && mv $bundledir $bundledir.$current_ts
+[[ -d $vimdir ]] && mv $vimdir $vimdir.$current_ts
+
+ln -s $sourcedir $vimdir
 
 mkdir -p $bundledir
 pushd $bundledir
-git clone git://github.com/gmarik/vundle.git
+git clone git://github.com/Shougo/neobundle.vim
 popd
 
-vim -c BundleInstall +qa
+while [[ ! -d $youcompleteme ]]; do
+    echo 'Please open vim in a different shell to install all the bundles'
+    read
+done
+
+pushd $youcompleteme
+./install.sh --clang-completer --omnisharp-completer
+popd
+
+echo 'vimrc install complete'

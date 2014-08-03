@@ -64,3 +64,6 @@ nnoremap <c-j> 5<c-w>+
 nnoremap <c-k> 5<c-w>-
 nnoremap <c-h> 5<c-w><
 nnoremap <c-l> 5<c-w>>
+
+" Set working directory
+nnoremap <silent> <leader>. :lcd %:p:h<CR>

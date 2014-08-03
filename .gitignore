@@ -1,2 +1,6 @@
 bundle
+bundle\.*
 *disabled
+*.py[co]
+*.sw[nop]
+.netrwhist

@@ -28,7 +28,6 @@ NeoBundle 'pangloss/vim-javascript'
 NeoBundle 'leshill/vim-json'
 NeoBundle 'LaTeX-Box-Team/LaTeX-Box'
 NeoBundle 'groenewege/vim-less'
-NeoBundle 'tpope/vim-markdown'
 NeoBundle 'mutewinter/nginx.vim'
 NeoBundle 'StanAngeloff/php.vim'
 NeoBundle 'mitsuhiko/vim-python-combined'
@@ -45,7 +44,6 @@ NeoBundle 'vim-perl/vim-perl'
 NeoBundle 'tracwiki'
 NeoBundle 'sukima/xmledit'
 NeoBundle 'tudorprodan/html_annoyance.vim'
-NeoBundle 'Rykka/riv.vim'
 NeoBundle 'fish-syntax'
 " colors
 NeoBundle 'CycleColor'
@@ -90,6 +88,9 @@ NeoBundle 'alfredodeza/pytest.vim'
 NeoBundle 'jmcantrell/vim-virtualenv'
 " environment
 NeoBundle 'nsmgr8/vitra'
+NeoBundle 'godlygeek/tabular'
+NeoBundle 'plasticboy/vim-markdown'
+NeoBundle 'Rykka/riv.vim'
 
 call neobundle#end()
 

@@ -45,6 +45,7 @@ NeoBundle 'tracwiki'
 NeoBundle 'sukima/xmledit'
 NeoBundle 'tudorprodan/html_annoyance.vim'
 NeoBundle 'fish-syntax'
+NeoBundle 'markwu/manpageview'
 " colors
 NeoBundle 'CycleColor'
 NeoBundle 'flazz/vim-colorschemes'

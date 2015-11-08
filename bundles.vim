@@ -51,6 +51,7 @@ NeoBundle 'CycleColor'
 NeoBundle 'flazz/vim-colorschemes'
 NeoBundle 'CSApprox'
 NeoBundle 'bling/vim-airline'
+NeoBundle 'zenorocha/dracula-theme', {'rtp': 'vim/'}
 " utils
 NeoBundle 'DrawIt'
 NeoBundle 'ervandew/supertab'

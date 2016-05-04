@@ -56,6 +56,8 @@ NeoBundle 'vim-airline/vim-airline-themes'
 NeoBundle 'jdkanani/vim-material-theme'
 NeoBundle 'zenorocha/dracula-theme', {'rtp': 'vim/'}
 NeoBundle 'reedes/vim-colors-pencil'
+NeoBundle 'edkolev/promptline.vim'
+NeoBundle 'edkolev/tmuxline.vim'
 " utils
 NeoBundle 'DrawIt'
 NeoBundle 'ervandew/supertab'

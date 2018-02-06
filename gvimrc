@@ -32,11 +32,11 @@ set guitablabel=%{GuiTabLabel()}\ %t
 endif " v:version >= 700
 
 set background=dark
-colorscheme solarized
+colorscheme papercolor
 
 " Font.
 if has('mac')
-    set guifont=Droid\ Sans\ Mono\ for\ Powerline:h14
+    set guifont=Noto\ Mono\ for\ Powerline:h14
 elseif has('unix')
     let &guifont="DejaVu Sans Mono 10"
 endif

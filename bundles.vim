@@ -13,7 +13,8 @@ call neobundle#begin(expand('~/.vim/bundle/'))
 NeoBundleFetch 'Shougo/neobundle.vim'
 
 " syntax
-NeoBundle 'scrooloose/syntastic'
+NeoBundle 'w0rp/ale'
+" NeoBundle 'scrooloose/syntastic'
 NeoBundle 'octol/vim-cpp-enhanced-highlight'
 NeoBundle 'vim-jp/cpp-vim'
 NeoBundle 'kergoth/aftersyntaxc.vim'
@@ -35,7 +36,7 @@ NeoBundle 'vim-scripts/R.vim'
 NeoBundle 'vim-ruby/vim-ruby'
 NeoBundle 'wting/rust.vim'
 NeoBundle 'kurayama/systemd-vim-syntax'
-NeoBundle 'acustodioo/vim-tmux'
+NeoBundle 'tmux-plugins/vim-tmux'
 NeoBundle 'ap/vim-css-color'
 NeoBundle 'mitsuhiko/vim-jinja'
 NeoBundle 'django.vim'
